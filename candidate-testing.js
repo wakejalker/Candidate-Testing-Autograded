@@ -30,18 +30,24 @@ candidateAnswer = input.question("Question 1: " + question);
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if (candidateAnswer === correctAnswer) {
-  console.log("Correct!");
-} else (candidateAnswer != correctAnswer); {
-  console.log("Incorrect.");
-} 
+// if (candidateAnswer === correctAnswer) {
+//   console.log("Correct!");
+// } else (candidateAnswer != correctAnswer); {
+//   console.log("Incorrect.");
+// } 
+
 //why are the parentheses a different color than usual...not sure why "else" is unexpected either
 // GOT IT. had my semi colon in the wrong spot 
-// attempt 1: oop not right, both displayed lmao 
+// attempt 1: oop not right, both displayed 
 // attempt 2: adding else if didn't help hrm
-// atttempt 3: i think i had it coded incorrectly, updated from !correctAnswer. Still logs both when answered correctly, but CORRECTLY logs incorrect when answered in correctly. whyyy
-
-
+// attempt 3: i think i had it coded incorrectly, updated from !correctAnswer. Still logs both when answered correctly, but CORRECTLY logs incorrect when answered incorrectly. whyyy
+// going back over the lesson from 01/11 and seeing if anything in there helps because I'm loooost. 
+if (candidateAnswer == correctAnswer) {
+  console.log("Correct!")
+} else { (candidateAnswer != correctAnswer) 
+  console.log("Incorrect.")
+} 
+// OOOH okay so I didn't need semi colons? I need to go back and read the chapter again I think! 
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
