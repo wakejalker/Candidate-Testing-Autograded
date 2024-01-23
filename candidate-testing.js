@@ -11,9 +11,9 @@ let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer == 5000 meters? ", "(5 + 3)/2 * 10 = ? ",  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", 4];
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -24,30 +24,27 @@ candidateName = input.question("Please enter your name. ");
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-candidateAnswer = input.question("Question 1: " + question);
+// candidateAnswer = input.question("Question 1: " + question);
+  for (let i = 0; i < questions.length; i++){
+    candidateAnswers = input.question(questions[i]);
+    if (candidateAnswers == correctAnswers) {
+      candidateAnswers.push();
+    } 
+  }
 }
+
+
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-// if (candidateAnswer === correctAnswer) {
-//   console.log("Correct!");
-// } else (candidateAnswer != correctAnswer); {
-//   console.log("Incorrect.");
+// if (candidateAnswer == correctAnswer) {
+//   console.log("Correct!")
+//  } else { (candidateAnswer != correctAnswer) 
+//   console.log("Incorrect.")
 // } 
-
-//why are the parentheses a different color than usual...not sure why "else" is unexpected either
-// GOT IT. had my semi colon in the wrong spot 
-// attempt 1: oop not right, both displayed 
-// attempt 2: adding else if didn't help hrm
-// attempt 3: i think i had it coded incorrectly, updated from !correctAnswer. Still logs both when answered correctly, but CORRECTLY logs incorrect when answered incorrectly. whyyy
-// going back over the lesson from 01/11 and seeing if anything in there helps because I'm loooost. 
-if (candidateAnswer == correctAnswer) {
-  console.log("Correct!")
-} else { (candidateAnswer != correctAnswer) 
-  console.log("Incorrect.")
-} 
-// OOOH okay so I didn't need semi colons? I need to go back and read the chapter again I think! 
+console.log(`Question 1: Your Answer: ${candidateAnswers[0]} Correct Answer: ${correctAnswers[0]}`)
+// come back to this, it's not storing my answers...
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
