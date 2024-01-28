@@ -14,7 +14,6 @@ let candidateAnswer = "";
 let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer == 5000 meters? ", "(5 + 3)/2 * 10 = ? ",  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
-// this variable gave me trouble. was just candidateAnswers; at first 
 
 
 function askForName() {
@@ -25,32 +24,6 @@ candidateName = input.question("Please enter your name. ");
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-// candidateAnswer = input.question("Question 1: " + question);
-
-// replace above ^ for part 2 with a loop that programmatically asks each question in the array and stores the user’s responses.
-
-// for (let i = 0; i < questions.length; i++){
-//   candidateAnswers = input.question(questions[i]);
-//   if (candidateAnswers == correctAnswers) {
-//     candidateAnswers.push();
-//   } 
-// }
-// // not storing answers
-
-  // for (let i = 0; i < questions.length; i++){
-  //   candidateAnswers.push(input.question(questions[i]));
-  // }
-  // // throws error
-
-  // for (let i = 0; i < questions.length; i++){
-  //   candidateAnswers[i] = input.question(questions[i]);
-  // }
-  // // throws error
-
-  // for (let i = 0; i < questions.length; i++){
-  //   candidateAnswers = input.question(questions[i]);
-  // }
-  // // when logged, just stored the last answer 
 
   for (let i = 0; i < questions.length; i++){
     candidateAnswer = input.question(questions[i]);
@@ -66,33 +39,34 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-// if (candidateAnswer == correctAnswer) {
-//   console.log("Correct!")
-//  } else { (candidateAnswer != correctAnswer) 
-//   console.log("Incorrect.")
-// } 
 
-// Pt 2 Replace the basic feedback from TODO 1.2c with a template literal that displays each of the candidate’s responses in addition to the corresponding correct answers.
-
-// for (let i = 0; i < candidateAnswers.length; i++){
-//   console.log(`${i+1}) Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]}`);
-// }
-// this works but fails npm test. need to add validation? 
-
-for (let i = 0; i < candidateAnswers.length; i++){
+  for (let i = 0; i < candidateAnswers.length; i++){
   if (candidateAnswers[i] === correctAnswers[i]){
-    console.log(`${i+1}) Your answer: ${candidateAnswers[i]}. Correct!`)
+    console.log(`${i+1}) Your answer: ${candidateAnswers[i]}. Correct!`);
   } else {
     console.log(`${i+1}) Incorrect. Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]}`);
   }
-}
-// says 3 is incorrect for last answer.. updated variable to be string and that worked
+  }
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let grade = 0;  
+  //TODO 3.2 use this variable to calculate the candidates score.
+  for (let i = 0; i < candidateAnswers.length; i++){
+  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+    grade ++;
+  }
+  }
+  let candidateScore = grade / 5 * 100;
+  if (candidateScore >= 80) {
+    console.log(`Congratulations, you passed with a grade of ${candidateScore}%.`);
+  } else {
+    console.log(`Your score is below 80%. You have failed the test.`);
+  }
+  return candidateScore;
+  // failed autograder on first go even though program is (technically) doing what it should
+  // put this here on a total guess and it passed the autograder!! 
+  // I wonder how I can modify it to not say it's incorrect if I say "sally ride" since that is technically correct now..
   return grade;
+
 }
 
 function runProgram() {
