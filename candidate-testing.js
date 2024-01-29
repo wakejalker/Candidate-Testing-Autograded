@@ -41,32 +41,33 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
   for (let i = 0; i < candidateAnswers.length; i++){
-  if (candidateAnswers[i] === correctAnswers[i]){
-    console.log(`${i+1}) Your answer: ${candidateAnswers[i]}. Correct!`);
-  } else {
-    console.log(`${i+1}) Incorrect. Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]}`);
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
+      console.log(`${i+1}) Your answer: ${candidateAnswers[i]}. Correct!`);
+     } else {
+      console.log(`${i+1}) Incorrect. Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]}`);
   }
   }
+
+  // can modify this block
 
   let grade = 0;  
   //TODO 3.2 use this variable to calculate the candidates score.
   for (let i = 0; i < candidateAnswers.length; i++){
-  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
     grade ++;
   }
   }
-  let candidateScore = grade / 5 * 100;
-  if (candidateScore >= 80) {
-    console.log(`Congratulations, you passed with a grade of ${candidateScore}%.`);
-  } else {
-    console.log(`Your score is below 80%. You have failed the test.`);
-  }
-  return candidateScore;
-  // failed autograder on first go even though program is (technically) doing what it should
-  // put this here on a total guess and it passed the autograder!! 
-  // I wonder how I can modify it to not say it's incorrect if I say "sally ride" since that is technically correct now..
-  return grade;
 
+  let candidateScore = grade / 5 * 100;
+    if (candidateScore >= 80) {
+      console.log(`Congratulations, you passed with a grade of ${candidateScore}%.`);
+    } else {
+      console.log(`Your score is below 80%. You have failed the test.`);
+   }
+
+  return candidateScore;
+  return grade;
+  
 }
 
 function runProgram() {
